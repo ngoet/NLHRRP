@@ -1,0 +1,7 @@
+dev/
+raw_data/
+.idea/
+.mypy_cache/
+gen_db.py
+venv/
+*__pycache__

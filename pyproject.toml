@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 120
+target-version = ['py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.0.0"
+version_files = [
+    "pyproject.toml:version",
+    "data/__version__.py"
+]

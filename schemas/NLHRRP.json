@@ -1,0 +1,123 @@
+{
+  "title": "Netherlands House of Representatives Rules of Procedure (NLHRRP), 1814-1937",
+  "type": "object",
+  "properties": {
+    "creator": {
+      "title": "Creator",
+      "description": "Name of the creator of the dataset.",
+      "type": "string"
+    },
+    "creation_date": {
+      "title": "Creation Date",
+      "description": "Date on which the current version of the dataset was generated.",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "description": "The version of the dataset (follows the semantic versioning convention).",
+      "type": "string"
+    },
+    "db_name": {
+      "title": "Db Name",
+      "description": "Name of the dataset.",
+      "type": "string"
+    },
+    "email": {
+      "title": "Email",
+      "description": "Email of the creator of the dataset.",
+      "type": "string"
+    },
+    "scope": {
+      "title": "Scope",
+      "description": "Description of the scope of the dataset.",
+      "type": "string"
+    },
+    "dataset": {
+      "title": "Dataset",
+      "description": "List of dataset entries.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/DatasetEntry"
+      }
+    }
+  },
+  "required": [
+    "creator",
+    "creation_date",
+    "version",
+    "db_name",
+    "email",
+    "scope",
+    "dataset"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "DataEntry": {
+      "title": "DataEntry",
+      "type": "object",
+      "properties": {
+        "date": {
+          "title": "Date",
+          "description": "The date on which the article was in force / adopted.",
+          "type": "string"
+        },
+        "year": {
+          "title": "Year",
+          "description": "The year in which the article was in force / adopted.",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "description": "A unique identifier assigned to the article when it first appears in the period covered by the data",
+          "type": "integer"
+        },
+        "article_text": {
+          "title": "Article Text",
+          "description": "The text of the article.",
+          "type": "string"
+        },
+        "length": {
+          "title": "Length",
+          "description": "The length of the article (number of words).",
+          "type": "integer"
+        },
+        "language": {
+          "title": "Language",
+          "description": "The language in which the article is written (NL or ENG)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "year",
+        "article_id",
+        "article_text",
+        "length",
+        "language"
+      ]
+    },
+    "DatasetEntry": {
+      "title": "DatasetEntry",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "description": "The title of the dataset entry",
+          "type": "string"
+        },
+        "data": {
+          "title": "Data",
+          "description": "A dictionary of entries in the dataset. Each entry covers a specific time period in the House's legislative history.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataEntry"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "data"
+      ]
+    }
+  }
+}
